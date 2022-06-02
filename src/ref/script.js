@@ -118,6 +118,18 @@ let S = {
         ["*p", "last text", 0],
 
     ],
+    "d1_kcAtest": [
+        ["kc", "hi there ...", 10],
+        ["kc", "i'm you're supervisor, Karan Chandrashekar.", 120],
+        ["kc", "you can call me Christopher.", 120],
+        ["kc", "this is our chat system that we use, Discharge...", 200],
+        ["kc", "just need to type into the chat bar, to send message.", 120],
+        ["*t", "It's not that hard...", 0],
+        ["kc", "Some more text idk...", 120],
+        ["*p", "Nice to meet you", 0],
+        ["*p", "last text", 0],
+
+    ],
     "d1_nkA" : [
         ["nk", "Hey, I'm Nidia from payroll.", 1000],
         ["nk", "I will be sending you commission via proxy account", 120],

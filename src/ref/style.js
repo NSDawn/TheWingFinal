@@ -14,6 +14,7 @@ const UI = {
 
     PFP: {
         "*p": "pfp1.png",
+        "*t": "blank.png",
         "Onion": "pfp2.png",
         "Nagito": "pfp3.png",
         "Weeb" : "pfp4.png",
@@ -22,11 +23,13 @@ const UI = {
     },
     
     FULLNAME: {
+        "*t" : "  ", 
         "Onion": "Onionus Maximus",
         "Nagito": "Nagito Komaeda",
         "Weeb" : "Weeb",
         "kc": "Karan Chandrashekar",
         "nk": "Nidia Kaur",
+        
     },
 };
 
@@ -37,6 +40,7 @@ IMG_LIST = [
     "pfp4.png",
     "pfp_kc.jpg",
     "pfp_nk.jpg",
+    "blank.png",
 
     "mascot.png",
 ]

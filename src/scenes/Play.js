@@ -21,7 +21,7 @@ class scenePlay {
         return;
     }
     sceneInit() { // runs once when this scene is switched to  
-        runSlice("d1_kcA", "kc");
+        runSlice("d1_kcAtest", "kc");
         runSlice("d1_nkA", "nk")
         
         return;
@@ -42,6 +42,14 @@ class scenePlay {
         // putting the texts on the scrolling center screen
         let yOffset = 0;
         let minRep = 2; // offset by at least 2 lines between users (bc of PFP)
+        // put a first message on the screen
+       
+        fill(UI.LIGHT_COLOR); textStyle(ITALIC); text(
+            "(This is the beginning of your conversation with " + UI.FULLNAME[selectedUser] + ")",
+            CANVAS_SIZE.x/8 + UI.TEXTSIZE, 
+            scrollOffset + yOffset + 5 * UI.TEXTSIZE,
+        ); textStyle(NORMAL);
+        yOffset += UI.TEXTSIZE * 2;
         for (let i = 0; i < save.msg[selectedUser].length; i++) {
             
             let isSameUser = false
@@ -75,18 +83,18 @@ class scenePlay {
                     (save.msg[selectedUser][i][0] == "*p") ? SETTINGS.PLAYER_NAME : UI.FULLNAME[save.msg[selectedUser][i][0]], 
                     CANVAS_SIZE.x/4, 
                     scrollOffset + yOffset + UI.TEXTSIZE, 
-                );
-                fill(UI.LIGHT_COLOR); text(
+                ); 
+                fill(save.msg[selectedUser][i][0] == "*t"? UI.DARK_COLOR : UI.LIGHT_COLOR); text(
                     translateTime(save.msg[selectedUser][i][2]),
                     3 * CANVAS_SIZE.x/4,
                     scrollOffset + yOffset + UI.TEXTSIZE,        
-                ); yOffset += UI.TEXTSIZE * 1.25}
+                ); yOffset += UI.TEXTSIZE * 1.25};
 
-                fill(UI.LIGHT_COLOR); text(
+                fill(save.msg[selectedUser][i][0] == "*t"? UI.VLIGHT_COLOR : UI.LIGHT_COLOR); textStyle(save.msg[selectedUser][i][0] == "*t"? ITALIC : NORMAL); text(
                     save.msg[selectedUser][i][1], 
                     CANVAS_SIZE.x/4, 
                     scrollOffset + yOffset + UI.TEXTSIZE,
-                );
+                ); textStyle(NORMAL);
             } else {
                 continue;
             }
