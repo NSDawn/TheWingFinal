@@ -127,6 +127,7 @@ let S = {
         ["*t", "It's not that hard...", 0],
         ["kc", "Some more text idk...", 120],
         ["*p", "Nice to meet you", 0],
+        ["*b", "", 100],
         ["*p", "last text", 0],
 
     ],

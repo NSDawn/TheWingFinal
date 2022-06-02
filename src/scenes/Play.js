@@ -8,7 +8,7 @@ let currentLineNum = {}; let currentLine = {}; let currentLineTyped = {};
 let currentChoice = {}; let currentSelectedChoice = {};
 let notif = {};
 
-let typeTick = 0; // referenced for the | thing.
+let typeTick = 0; // referenced for the | thing, and for the typing... message 
 let scrollOffset = 0; let maxScroll = 0;
 let scrollOffsetUsers = 0; let maxScrollUsers = 0;
 let autoScrollDown = false; let autoScrollDownTick = 2;
@@ -38,6 +38,8 @@ class scenePlay {
         }
 
         // SCREEN ITEMS
+
+        typeTick = (typeTick != 60) ? typeTick + 1 : 0; // tick the ticker 
         
         // putting the texts on the scrolling center screen
         let yOffset = 0;
@@ -99,6 +101,15 @@ class scenePlay {
                 continue;
             }
         }
+        // put a blocked message if blocked
+        if (currentLine[selectedUser][0] == "*b" && currentLine[selectedUser][2] == 0) {
+            yOffset += UI.TEXTSIZE * 4;
+            fill(UI.BLOCKED_COLOR); text(
+                "You have been blocked by " + UI.FULLNAME[selectedUser],
+                CANVAS_SIZE.x/8 + UI.BUFF, 
+                scrollOffset + yOffset + UI.TEXTSIZE, 
+            ); 
+        }
 
         // top bar
         fill(UI.LIGHT_COLOR); rect(
@@ -128,7 +139,7 @@ class scenePlay {
             CANVAS_SIZE.y / 8,
         );
         // textbox
-        fill(UI.VLIGHT_COLOR); rect(
+        fill(currentLine[selectedUser][0] == "*b" && currentLine[selectedUser][2] == 0 ? UI.BLOCKED_COLOR : UI.VLIGHT_COLOR); rect(
             CANVAS_SIZE.x / 8 + UI.BUFF, 
             7 * CANVAS_SIZE.y / 8 + UI.BUFF, 
             7* CANVAS_SIZE.x /8 - 2* UI.BUFF, 
@@ -141,12 +152,23 @@ class scenePlay {
                 CANVAS_SIZE.x / 8 + UI.BUFF + UI.TEXTSIZE, 
                 7 * CANVAS_SIZE.y / 8 + 1.5*UI.BUFF + UI.TEXTSIZE,
             );
-            typeTick = (typeTick != 60) ? typeTick + 1 : 0; // tick the ticker
             fill(UI.DARK_COLOR); textSize(UI.TEXTSIZE); text(
                 currentLineTyped[selectedUser] + ((typeTick > 30) ? "|" : ""),
                 CANVAS_SIZE.x / 8 + UI.BUFF + UI.TEXTSIZE, 
                 7 * CANVAS_SIZE.y / 8 + 1.5*UI.BUFF + UI.TEXTSIZE,
             );
+        }
+        // putting typing... at the top of the screen while someone is 'typing'
+        if (! (["*b", "*p", "*w"].includes(currentLine[selectedUser][0]))) {
+            if (currentLine[selectedUser][2] < 150) {
+                let dots = ".".repeat(Math.min(Math.floor(typeTick / 20) + 1, 3));
+                text(
+                    "typing" + dots,
+                    7 * CANVAS_SIZE.x/8,
+                    CANVAS_SIZE.y / 16 + UI.TEXTSIZE /2,
+                );
+                
+            }
         }
         
         // left bar 
@@ -289,15 +311,18 @@ class scenePlay {
                     }
                 }
             }
-        }
+        } 
 
         // tick everyone's clocks, and send messages when necessary
         let userSent = false;
         for (let i = 0; i < availableUsers.length; i++) {
-            if (currentLine[availableUsers[i]][0] != "*p") {
+            if (!(["*p"].includes(currentLine[availableUsers[i]][0]))) {
                 if (currentLine[availableUsers[i]][2]) {
                     currentLine[availableUsers[i]][2] -= 1;
-                } else {
+                    if (currentLine[availableUsers[i]][0] == "*b" && currentLine[availableUsers[i]][2] == 1 && availableUsers[i] == selectedUser) {
+                        autoScrollDown = true;
+                    }
+                } else if (currentLine[availableUsers[i]][0] != "*b") {
                     this.bonk.play();
                     userSent = availableUsers[i];
                     // take the line just sent and throw it into the savedata
