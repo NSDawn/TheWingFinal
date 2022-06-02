@@ -22,7 +22,9 @@ class scenePlay {
     }
     sceneInit() { // runs once when this scene is switched to  
         runSlice("d1_kcAtest", "kc");
-        runSlice("d1_nkA", "nk")
+        runSlice("d1_nkA", "nk");
+        runSlice("d1_m", "m");
+        runSlice("d1_tp", "tp");
         
         return;
     }
@@ -72,21 +74,31 @@ class scenePlay {
             if (yOffset + scrollOffset < -CANVAS_SIZE / 8) {
                 continue;
             } else if (yOffset + scrollOffset < 9 * CANVAS_SIZE.y / 8) {
-
+                
                 if (!isSameUser) {
+                
+                let thispfp; let thisname;
+                if (save.msg[selectedUser][i][0] == "*p") {
+                    thispfp = IMG[UI.PFP[UI.SPOOF[selectedUser]]];
+                    thisname = UI.FULLNAME[UI.SPOOF[selectedUser]];
+                } else {
+                    thispfp = IMG[UI.PFP[save.msg[selectedUser][i][0]]];
+                    thisname = UI.FULLNAME[save.msg[selectedUser][i][0]];
+                }
+
                 image(
-                    IMG[UI.PFP[save.msg[selectedUser][i][0]]],
+                    thispfp,
                     CANVAS_SIZE.x/8 + UI.BUFF,
                     scrollOffset + yOffset, 
                     CANVAS_SIZE.x/8 - UI.BUFF *2,
                     CANVAS_SIZE.x/8 - UI.BUFF *2,
                 );
                 fill(UI.VLIGHT_COLOR); text(
-                    (save.msg[selectedUser][i][0] == "*p") ? SETTINGS.PLAYER_NAME : UI.FULLNAME[save.msg[selectedUser][i][0]], 
+                    thisname,
                     CANVAS_SIZE.x/4, 
                     scrollOffset + yOffset + UI.TEXTSIZE, 
                 ); 
-                fill(save.msg[selectedUser][i][0] == "*t"? UI.DARK_COLOR : UI.LIGHT_COLOR); text(
+                fill(save.msg[selectedUser][i][0] == "*t"? UI.DARK_COLOR : UI.MLIGHT_COLOR); text(
                     translateTime(save.msg[selectedUser][i][2]),
                     3 * CANVAS_SIZE.x/4,
                     scrollOffset + yOffset + UI.TEXTSIZE,        
@@ -159,13 +171,17 @@ class scenePlay {
             );
         }
         // putting typing... at the top of the screen while someone is 'typing'
-        if (! (["*b", "*p", "*w"].includes(currentLine[selectedUser][0]))) {
+        if (! (["*t", "*b", "*p", "*w"].includes(currentLine[selectedUser][0]))) {
             if (currentLine[selectedUser][2] < 150) {
                 let dots = ".".repeat(Math.min(Math.floor(typeTick / 20) + 1, 3));
                 text(
                     "typing" + dots,
+                    CANVAS_SIZE.x/8 + UI.TEXTSIZE /2,
+                    7*CANVAS_SIZE.y/8 - UI.TEXTSIZE /2,
+                    /*
                     7 * CANVAS_SIZE.x/8,
                     CANVAS_SIZE.y / 16 + UI.TEXTSIZE /2,
+                    */
                 );
                 
             }
@@ -316,7 +332,7 @@ class scenePlay {
         // tick everyone's clocks, and send messages when necessary
         let userSent = false;
         for (let i = 0; i < availableUsers.length; i++) {
-            if (!(["*p"].includes(currentLine[availableUsers[i]][0]))) {
+            if (!(["*p", "*w"].includes(currentLine[availableUsers[i]][0]))) {
                 if (currentLine[availableUsers[i]][2]) {
                     currentLine[availableUsers[i]][2] -= 1;
                     if (currentLine[availableUsers[i]][0] == "*b" && currentLine[availableUsers[i]][2] == 1 && availableUsers[i] == selectedUser) {

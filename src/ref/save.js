@@ -7,11 +7,12 @@ let save = {
     "flag": {
         "testFlag" : 0,
     },
-}
+    "day" : 1, 
+    "isDaytime" : true,
+};
 
 let SETTINGS = {
     SENSITIVITY : 10,
     SCROLL_INVERT: false,
-    
-    PLAYER_NAME: "Shrek",
-}
+
+};

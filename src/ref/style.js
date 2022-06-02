@@ -17,31 +17,46 @@ const UI = {
     PFP: {
         "*p": "pfp1.png",
         "*t": "blank.png",
-        "Onion": "pfp2.png",
-        "Nagito": "pfp3.png",
-        "Weeb" : "pfp4.png",
-        "kc" : "pfp_kc.jpg",
-        "nk" : "pfp_nk.jpg",
+        "kc": "pfp_kc.jpg",
+        "nk": "pfp_nk.jpg",
+        "m" : "pfp_m.png",
+        "f" : "pfp_f.png",
+        "fj" : "pfp_fj.png",
+        "tp" : "pfp_tp.png",
+        "w" : "blank.png", 
     },
     
     FULLNAME: {
-        "*t" : "  ", 
-        "Onion": "Onionus Maximus",
-        "Nagito": "Nagito Komaeda",
-        "Weeb" : "Weeb",
+        "*p": "Indigo Warren",
+        "*t" : "", 
         "kc": "Karan Chandrashekar",
         "nk": "Nidia Kaur",
-        
+        "m" : "Stacy Warren",
+        "f" : "Ky Hernandez",
+        "fj" : "Felix Joel",
+        "tp" : "Trish Price", 
+        "w" : "The Wing"
+
     },
+
+    SPOOF: { 
+        "kc": "*p",
+        "nk": "*p",
+        "m" : "*p",
+        "f" : "*p",
+        "fj" : "w",
+        "tp" : "fj", 
+    }
 };
 
 IMG_LIST = [
     "pfp1.png", 
-    "pfp2.png",
-    "pfp3.png",
-    "pfp4.png",
     "pfp_kc.jpg",
     "pfp_nk.jpg",
+    "pfp_f.png",
+    "pfp_m.png",
+    "pfp_fj.png",
+    "pfp_tp.png",
     "blank.png",
 
     "mascot.png",
