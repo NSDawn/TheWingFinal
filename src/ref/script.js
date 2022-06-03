@@ -25,7 +25,7 @@ let S = {
 	    ["*p", "uh,, is that all i need to know?", 0],
         ["nk", "Yes.", 120], 
         ["nk", "Hopefully, I have a payment for you soon 😄.", 300],
-        ["*t", "a little stiff… but they seem nice?", 0],
+        ["*t", "a little stiff… but they seem nice?", 100],
         ["*w", "", 0],
     ],
     "d1_kcB" : [

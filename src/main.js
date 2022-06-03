@@ -97,11 +97,11 @@ let mouseScroll = 0;
 function mouseWheel(event) {
     mouseScroll = event.delta / SETTINGS.SENSITIVITY * (SETTINGS.SCROLL_INVERT? 1 : -1);
     
-    /* // this would handle scrolling on the screen vs. scrolling on the whole page, but google chrome doesn't like this.
+    // this would handle scrolling on the screen vs. scrolling on the whole page, but google chrome doesn't like this.
     if ((mouseX <= CANVAS_SIZE.x) && (mouseX >= 0) && (mouseY <= CANVAS_SIZE.y) && (mouseY >= 0)) {
         return false;
     }
-    */
+    
 }
 
 let mouseJustClicked = false;
