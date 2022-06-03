@@ -76,7 +76,52 @@ let S = {
         ["*p", "talk to you later", 0],
         ["*p", "love you", 0],
         ["m", "Love you more ❤️❤️❤️ !!", 600],
+        ["*w", "", 0],
     ],
+    
+    "d1_fA" : [
+        ["f", "hey ! how’s everything ?", 0],
+        ["f", "did you manage to snag that job you kept talking to me about lol", 120],
+        ["f", "it’s kind of funny how excited you were about it", 150],
+        ["f", "even though its pretty sketchy", 100],
+        ["f", "they don’t make you take an oath of silence or smth right ?", 250],
+        ["*p", "oh yeah, i did", 0],
+        ["*p", "i can’t believe i didn’t tell you...", 0],
+        ["*p", "today’s actually the first day", 0],
+        ["*p", "so i can’t talk for long.", 0],
+        ["*p", "but thanks for checking up on me,,", 0],
+        ["*p", "it’s not that sketchy i dont think,,", 0],
+        ["*p", "is it?", 0],
+        ["*p", "i havent ever heard of a job like this but they havent been weird", 0],
+        ["*p", ",,,yet", 0],
+        ["f", "that’s your first clue that its strange", 120],
+        ["f", "why haven’t we heard about anything like this if its not sketchy ?", 120],
+        ["f", "we are online most of the time…", 150],
+        ["f", "even though its pretty sketchy", 100],
+        ["f", "they don’t make you take an oath of silence or smth right ?", 250],
+        ["f", "i just want you to be careful, this could be dangerous.", 250],
+        ["*t", "…", 120],
+        ["*t", "i guess they’re not wrong, i should be more careful", 250],
+        ["f", "anyway i didn’t really mean to scare you,", 150],
+        ["f", "even if its a little weird i trust your judgement", 100],
+        ["f", "hoping you have a good day today ! kick ass out there !", 250],
+        ["f", "i gotta get going too", 250],
+        ["f", "my partner wanted to go out for breakfast today and", 250],
+        ["f", "i woke up late lol", 0],
+        ["*p", "thanks.. i really appreciate it.", 0, "finishedFirstConvoFriend"],
+        ["*t", "since mom is being so annoying right now", 120],
+        ["*p", "i’ll do my best! see you,, and have fun,,", 0],
+        ["*w", "", 0]
+    ],
+
+
+
+    "d1_kcC" : [
+        ["kc", "the system is ready now. i am ready to send you your first client", 300], 
+        ["kc", "good luck.", 100, "sendFirstClient"], 
+        ["*p", "thank you.", 0],
+        ["*w", "", 0],
+    ], 
 
     "d1_fjA" : [
         ["fj", "Hello?", 0], 
@@ -98,16 +143,38 @@ let S = {
         ["fj", "She's so quiet all the time.", 120],
         ["fj", "Uhh...", 60],
         ["fj", "I'm a coffee man myself but I'm pretty sure she likes tea.", 120],
+        ["fj", "Also, she's really shy, so talk about interests first! not LOOKS!", 120], 
         ["fj", "That's all I got.", 180],
         ["fj", "Keep me posted, Wing", 60, "finishedFirstConvoFelix"],
         ["*p", "Understood.", 0],
         ["*w", "", 0],
     ],
     
+    "d1_tpA" : [
+        ["*p", "hey there.", 0], 
+        ["tp", "hi.", 300],
+        ["*p", "your profile says you like tea.", 0],
+        ["*p", "", 0, "tpA_openingLine", "tell me about it|i think you're beauTEAful."],
+        ["*w", "", 0],
+    ],
     
+    "d1_tpB0" : [
+        ["tp", "yikes.", 300, "endOfDemo",],
+        ["*b", "", 60],
+    ],
     
-    
+    "d1_tpB1" : [
+        ["tp", "oh, I'd love to.", 300, "endOfDemo",],
+        ["*w", "", 0],
+    ],
 
+    "d1_endOfDemo" : [
+        ["kc", "----------------------------", 300],
+        ["kc", "Thank you for reaching the end of the demo.", 0],
+        ["kc", "Stay tuned for more!", 60],
+        ["*w", "", 0],
+    ],
+    
     "d1_tp" : [
         ["tp", "test", 100],
         ["*p", "test", 0], 
@@ -124,4 +191,6 @@ let S = {
         ["tp", "test", 100],
         ["*p", "test", 0], 
     ],
+
+    
 }
