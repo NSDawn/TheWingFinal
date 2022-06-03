@@ -21,11 +21,8 @@ class scenePlay {
         return;
     }
     sceneInit() { // runs once when this scene is switched to  
-        runSlice("d1_kcAtest", "kc");
-        runSlice("d1_nkA", "nk");
-        runSlice("d1_m", "m");
-        runSlice("d1_tp", "tp");
-        
+        runSlice("d1_kcA", "kc");  
+        runSlice("d1_fjA", "fj");
         return;
     }
     sceneDraw() { // runs once per ∆t
@@ -98,12 +95,15 @@ class scenePlay {
                     CANVAS_SIZE.x/4, 
                     scrollOffset + yOffset + UI.TEXTSIZE, 
                 ); 
+                /* //timestamp stuff, shelved for now
                 fill(save.msg[selectedUser][i][0] == "*t"? UI.DARK_COLOR : UI.MLIGHT_COLOR); text(
                     translateTime(save.msg[selectedUser][i][2]),
                     3 * CANVAS_SIZE.x/4,
                     scrollOffset + yOffset + UI.TEXTSIZE,        
-                ); yOffset += UI.TEXTSIZE * 1.25};
-
+                ); 
+                */ 
+                yOffset += UI.TEXTSIZE * 1.25};
+                
                 fill(save.msg[selectedUser][i][0] == "*t"? UI.VLIGHT_COLOR : UI.LIGHT_COLOR); textStyle(save.msg[selectedUser][i][0] == "*t"? ITALIC : NORMAL); text(
                     save.msg[selectedUser][i][1], 
                     CANVAS_SIZE.x/4, 
@@ -305,7 +305,7 @@ class scenePlay {
                         selectChars += choices[i][0];
                     }
                 }
-                const skippedChar = `"'.,?`;
+                const skippedChar = `"'.,?’`;
                 if (skippedChar.includes(nextChar)) {
                     currentLineTyped[selectedUser] += nextChar;
                 } else if (keyJustTyped == nextChar && nextChar != "[") {
@@ -339,6 +339,10 @@ class scenePlay {
                         autoScrollDown = true;
                     }
                 } else if (currentLine[availableUsers[i]][0] != "*b") {
+                    // note any flags
+                    if (currentLine[selectedUser][3]) {
+                        save["flag"][currentLine[selectedUser][3]] = 1;
+                    }
                     this.bonk.play();
                     userSent = availableUsers[i];
                     // take the line just sent and throw it into the savedata
@@ -356,6 +360,7 @@ class scenePlay {
                     autoScrollDown = (userSent == selectedUser)? true : autoScrollDown;
                     // if the screen is not open to it, send a notif
                     notif[userSent] += (userSent == selectedUser)? 0 : 1;
+                    
 
                 }
             }
