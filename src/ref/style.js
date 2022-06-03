@@ -27,7 +27,7 @@ const UI = {
     PFP: {
         "*p": "pfp_*p.png",
         "*t": "blank.png",
-        "kc": "pfp_kc.jpg",
+        "kc": "pfp_kc.png",
         "nk": "pfp_nk.png",
         "m" : "pfp_m.png",
         "f" : "pfp_f.png",
@@ -61,7 +61,7 @@ const UI = {
 
 IMG_LIST = [
     "pfp_*p.png",
-    "pfp_kc.jpg",
+    "pfp_kc.png",
     "pfp_nk.png",
     "pfp_f.png",
     "pfp_m.png",
