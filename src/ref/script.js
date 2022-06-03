@@ -102,7 +102,7 @@ let S = {
         ["fj", "Keep me posted, Wing", 60, "finishedFirstConvoFelix"],
         ["*p", "Understood.", 0],
         ["*w", "", 0],
-    ]
+    ],
     
     
     
