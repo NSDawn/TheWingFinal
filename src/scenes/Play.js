@@ -347,8 +347,15 @@ class scenePlay {
                         save["flag"][currentLine[selectedUser][3]] = 1;
                     }
                     
-                    let notif_sound = availableUsers[i] == selectedUser? SFX["key01"] : SFX["notif"];
-                    notif_sound.play();
+
+                    if (currentLine[availableUsers[i]][0] == "*t") { 
+                        SFX["thought"].play()
+                    } else if (availableUsers[i] == selectedUser) {
+                        SFX["key01"].play()
+                    } else {
+                        SFX["notif"].play()
+                    }
+                    
 
                     userSent = availableUsers[i];
                     // take the line just sent and throw it into the savedata
