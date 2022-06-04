@@ -2,16 +2,6 @@ const CANVAS_SIZE = new v2(600, 400);
 
 const UI = {
 
-    /*
-    PRIMARY_COLOR: '#FF0000',
-    VLIGHT_COLOR: '#F6F6F6',
-    MLIGHT_COLOR: 'E6E6E6',
-    LIGHT_COLOR: '#99AAB5',
-    DARK_COLOR: '#2C2F33',
-    VDARK_COLOR: '#23272A',
-    NOTIF_COLOR: '#ff481f',
-    BLOCKED_COLOR: '#ff816b',
-    */
     PRIMARY_COLOR: '#FF0000',
     VLIGHT_COLOR: '#fffaff',
     MLIGHT_COLOR: 'd6bdd9',
@@ -59,7 +49,7 @@ const UI = {
     }
 };
 
-IMG_LIST = [
+const IMG_LIST = [
     "pfp_*p.png",
     "pfp_kc.png",
     "pfp_nk.png",
@@ -72,4 +62,17 @@ IMG_LIST = [
     "blank.png",
 
     "mascot.png",
+]
+
+const SFX_LIST = [
+    "key01.mp3",
+    "key02.mp3",
+    "key03.mp3",
+    "key04.mp3",
+    "key05.mp3",
+    "key06.mp3",
+    "key07.mp3",
+    "key08.mp3",
+    "key09.mp3",
+    "notif.wav",
 ]

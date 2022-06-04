@@ -17,11 +17,10 @@ let autoScrollDown = false; let autoScrollDownTick = 2;
 class scenePlay {
     constructor() {};
     scenePreload() { // runs once before EVERYTHING else
-         this.bonk = new Audio('./assets/bonk-sound-effect.mp3');
         return;
     }
     sceneInit() { // runs once when this scene is switched to  
-        runSlice("d1_kcC", "kc");//runSlice("d1_kcA", "kc");
+        runSlice("d1_kcA", "kc");
         return;
     }
     sceneDraw() { // runs once per ∆t
@@ -36,7 +35,6 @@ class scenePlay {
         }
 
         // SCREEN ITEMS
-
         typeTick = (typeTick != 60) ? typeTick + 1 : 0; // tick the ticker 
         
         // putting the texts on the scrolling center screen
@@ -263,8 +261,12 @@ class scenePlay {
 
         // IF IT'S THE PLAYER'S TURN allow them to type responses
         if (currentLine[selectedUser][0] == "*p") {
+            const skippedChar = `"'.!?,’`;
             // handling different key inputs
             if (keyJustTyped == "*delete" && currentLineTyped[selectedUser] != "") {
+                while (skippedChar.includes(currentLineTyped[selectedUser][currentLineTyped[selectedUser].length -1])) {
+                    currentLineTyped[selectedUser] = currentLineTyped[selectedUser].substring(0, currentLineTyped[selectedUser].length -1);
+                }
                 currentLineTyped[selectedUser] = currentLineTyped[selectedUser].substring(0, currentLineTyped[selectedUser].length -1);
             } else if (currentLineTyped[selectedUser] == currentLine[selectedUser][1] + currentChoice[selectedUser]) {
                 if (keyJustTyped == "*return") {
@@ -304,12 +306,14 @@ class scenePlay {
                         selectChars += choices[i][0];
                     }
                 }
-                const skippedChar = `"'.,?’`;
+
                 if (skippedChar.includes(nextChar)) {
                     currentLineTyped[selectedUser] += nextChar;
                 } else if (keyJustTyped == nextChar && nextChar != "[") {
                     currentLineTyped[selectedUser] += keyJustTyped;
                     typeTick = 31;
+                    let randomKey = String(Math.floor(Math.random() * 9) + 1);
+                    SFX["key0" + randomKey].play();
                 } else if (selectChars.includes(keyJustTyped) && !(keyJustTyped == "")) {
                     currentLineTyped[selectedUser] += keyJustTyped;
                     currentSelectedChoice[selectedUser] = selectChars.indexOf(keyJustTyped);
@@ -342,7 +346,7 @@ class scenePlay {
                     if (currentLine[selectedUser][3]) {
                         save["flag"][currentLine[selectedUser][3]] = 1;
                     }
-                    this.bonk.play();
+                    SFX["notif"].play();
                     userSent = availableUsers[i];
                     // take the line just sent and throw it into the savedata
                     currentSlice[userSent][currentLineNum[userSent]][2] = Date.now();
@@ -435,4 +439,5 @@ function addUser(in_user) {
     currentLineTyped[in_user] = ""; 
     save.msg[in_user] = [];
     notif[in_user] = 0;
+     
 }

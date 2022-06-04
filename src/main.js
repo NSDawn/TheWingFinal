@@ -21,6 +21,8 @@ const SCENES = { // everytime you make a new scene, you need to put it into this
 let currentScene = "Menu";
 let flagHasRunInit = false;
 let FONT;
+let IMG;
+let SFX; let MUSIC;
 
 function setup() {
     // setup runs once for the entire program
@@ -38,6 +40,11 @@ function preload() {
     IMG = {}
     for (let i = 0; i < IMG_LIST.length; i++) { // preloading all images at once
         IMG[IMG_LIST[i]] = loadImage("./assets/images/" + IMG_LIST[i]);
+    }
+
+    SFX = {} 
+    for (let i = 0; i < SFX_LIST.length; i++) { // preloading all sounds at once 
+        SFX[SFX_LIST[i].split('.')[0]] = new Audio("./assets/sfx/" + SFX_LIST[i]);
     }
 }
 

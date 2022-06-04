@@ -93,7 +93,7 @@ let S = {
         ["*p", "it’s not that sketchy i dont think,,", 0],
         ["*p", "is it?", 0],
         ["*p", "i havent ever heard of a job like this but they havent been weird", 0],
-        ["*p", ",,,yet", 0],
+        ["*p", "yet,,,", 0],
         ["f", "that’s your first clue that its strange", 120],
         ["f", "why haven’t we heard about anything like this if its not sketchy ?", 120],
         ["f", "we are online most of the time…", 150],
@@ -113,8 +113,6 @@ let S = {
         ["*p", "i’ll do my best! see you,, and have fun,,", 0],
         ["*w", "", 0]
     ],
-
-
 
     "d1_kcC" : [
         ["kc", "the system is ready now. i am ready to send you your first client", 300], 
