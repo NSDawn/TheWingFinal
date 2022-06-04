@@ -74,5 +74,5 @@ const SFX_LIST = [
     "key07.mp3",
     "key08.mp3",
     "key09.mp3",
-    "notif.wav",
+    "notif.mp3",
 ]
