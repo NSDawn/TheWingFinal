@@ -21,13 +21,14 @@ class scenePlay {
     }
     sceneInit() { // runs once when this scene is switched to  
         runSlice("d1_kcA", "kc");
+        runSlice("d1_fjA", "fj");
         return;
     }
     sceneDraw() { // runs once per ∆t
         // settings
         background(UI.DARK_COLOR);
         noStroke();
-        textFont("Arial"); // textFont(FONT); // font change later pls.
+        
 
         // making sure the selected user is in save
         if (!(selectedUser in save["msg"])) {
@@ -45,9 +46,9 @@ class scenePlay {
         fill(UI.LIGHT_COLOR); textStyle(ITALIC); text(
             "(This is the beginning of your conversation with " + UI.FULLNAME[selectedUser] + ")",
             CANVAS_SIZE.x/8 + UI.TEXTSIZE, 
-            scrollOffset + yOffset + 5 * UI.TEXTSIZE,
+            scrollOffset + yOffset + 6 * UI.TEXTSIZE,
         ); textStyle(NORMAL);
-        yOffset += UI.TEXTSIZE * 2;
+        yOffset += UI.TEXTSIZE * 3;
         for (let i = 0; i < save.msg[selectedUser].length; i++) {
             
             let isSameUser = false
@@ -156,16 +157,18 @@ class scenePlay {
             CANVAS_SIZE.y / 16,             // rounded corners
         );
         if (currentLine[selectedUser][0] == "*p") {
+            textAlign(LEFT,CENTER);
             fill(UI.LIGHT_COLOR); textSize(UI.TEXTSIZE); text(
                 currentLine[selectedUser][1] + currentChoice[selectedUser],
-                CANVAS_SIZE.x / 8 + UI.BUFF + UI.TEXTSIZE, 
-                7 * CANVAS_SIZE.y / 8 + 1.5*UI.BUFF + UI.TEXTSIZE,
+                (CANVAS_SIZE.x / 8) + 2* UI.TEXTSIZE, 
+                7 * CANVAS_SIZE.y / 8 + UI.BUFF + (CANVAS_SIZE.y / 16 - 1.25 *UI.BUFF),
             );
             fill(UI.DARK_COLOR); textSize(UI.TEXTSIZE); text(
                 currentLineTyped[selectedUser] + ((typeTick > 30) ? "|" : ""),
-                CANVAS_SIZE.x / 8 + UI.BUFF + UI.TEXTSIZE, 
-                7 * CANVAS_SIZE.y / 8 + 1.5*UI.BUFF + UI.TEXTSIZE,
+                (CANVAS_SIZE.x / 8) + 2*UI.TEXTSIZE, 
+                7 * CANVAS_SIZE.y / 8 + UI.BUFF + (CANVAS_SIZE.y / 16 - 1.25 *UI.BUFF),
             );
+            textAlign(LEFT,BOTTOM);
         }
         // putting typing... at the top of the screen while someone is 'typing'
         if (! (["*t", "*b", "*p", "*w"].includes(currentLine[selectedUser][0]))) {
@@ -236,11 +239,15 @@ class scenePlay {
                         scrollOffsetUsers + yOffsetUsers - CANVAS_SIZE.x / 16 -hoverBuff/2,
                         CANVAS_SIZE.x/32,
                     )
+                    textAlign(CENTER, CENTER);
                     fill(UI.VLIGHT_COLOR); text(
                         String(notif[availableUsers[i]]),
-                        CANVAS_SIZE.x / 32 -hoverBuff/2 -5*UI.TEXTSIZE/16,
-                        scrollOffsetUsers + yOffsetUsers - CANVAS_SIZE.x / 16 -hoverBuff/2 +6*UI.TEXTSIZE/16,
+                        CANVAS_SIZE.x / 32 -hoverBuff/2 - CANVAS_SIZE.x/512,
+                        scrollOffsetUsers + yOffsetUsers - CANVAS_SIZE.x / 16 -hoverBuff/2 - CANVAS_SIZE.x/256,
+                        // CANVAS_SIZE.x / 32 -hoverBuff/2 -5*UI.TEXTSIZE/16,
+                        // scrollOffsetUsers + yOffsetUsers - CANVAS_SIZE.x / 16 -hoverBuff/2 +6*UI.TEXTSIZE/16,
                     )
+                    textAlign(LEFT, BOTTOM);
                 }
 
             } else {

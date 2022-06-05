@@ -12,10 +12,10 @@ const UI = {
     BLOCKED_COLOR: '#ff816b',
 
     BUFF: CANVAS_SIZE.x/60,
-    TEXTSIZE: CANVAS_SIZE.x/40,
+    TEXTSIZE: CANVAS_SIZE.x/45,
 
     PFP: {
-        "*p": "pfp_*p.png",
+        "*p": "pfp_p.png",
         "*t": "blank.png",
         "kc": "pfp_kc.png",
         "nk": "pfp_nk.png",
@@ -50,7 +50,7 @@ const UI = {
 };
 
 const IMG_LIST = [
-    "pfp_*p.png",
+    "pfp_p.png",
     "pfp_kc.png",
     "pfp_nk.png",
     "pfp_f.png",

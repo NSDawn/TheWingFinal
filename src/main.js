@@ -49,6 +49,9 @@ function preload() {
 }
 
 function draw() {
+    textFont(FONT); // font change later pls.
+    textAlign(LEFT, BOTTOM);
+
     // runs sceneInit once per changeScene
     if (!flagHasRunInit) {
         SCENES[currentScene].sceneInit();
