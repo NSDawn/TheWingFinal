@@ -27,7 +27,7 @@ class scenePlay {
         // settings
         background(UI.DARK_COLOR);
         noStroke();
-        textFont("Arial");// textFont(FONT); // font change later pls.
+        textFont("Arial"); // textFont(FONT); // font change later pls.
 
         // making sure the selected user is in save
         if (!(selectedUser in save["msg"])) {

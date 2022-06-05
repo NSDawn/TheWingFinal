@@ -4,7 +4,7 @@ const UI = {
 
     PRIMARY_COLOR: '#FF0000',
     VLIGHT_COLOR: '#fffaff',
-    MLIGHT_COLOR: 'd6bdd9',
+    MLIGHT_COLOR: '#d6bdd9',
     LIGHT_COLOR: '#b493b7',
     DARK_COLOR: '#66316b',
     VDARK_COLOR: '#343036',
@@ -62,7 +62,16 @@ const IMG_LIST = [
     "blank.png",
 
     "mascot.png",
-]
+
+    "title.png",
+    "button0.png",
+    "button1.png",
+    "wing0.png",
+    "wing1.png",
+    "wing2.png",
+    "wing3.png",
+    "wing4.png",
+];
 
 const SFX_LIST = [
     "key01.mp3",
@@ -76,4 +85,4 @@ const SFX_LIST = [
     "key09.mp3",
     "notif.mp3",
     "thought.mp3",
-]
+];
