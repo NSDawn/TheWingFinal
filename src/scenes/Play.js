@@ -173,15 +173,18 @@ class scenePlay {
         // putting typing... at the top of the screen while someone is 'typing'
         if (! (["*t", "*b", "*p", "*w"].includes(currentLine[selectedUser][0]))) {
             if (currentLine[selectedUser][2] < 150) {
+                let fillcolor = color(0,0,0, 50);
+                fill(fillcolor); rect(
+                    CANVAS_SIZE.x/8 - UI.TEXTSIZE /2,
+                    7*CANVAS_SIZE.y/8 - 2 * UI.TEXTSIZE,
+                    CANVAS_SIZE.x/8,
+                    1.5 * UI.TEXTSIZE, 
+                ); 
                 let dots = ".".repeat(Math.min(Math.floor(typeTick / 20) + 1, 3));
-                text(
+                fill(UI.VLIGHT_COLOR); text(
                     "typing" + dots,
                     CANVAS_SIZE.x/8 + UI.TEXTSIZE /2,
-                    7*CANVAS_SIZE.y/8 - UI.TEXTSIZE /2,
-                    /*
-                    7 * CANVAS_SIZE.x/8,
-                    CANVAS_SIZE.y / 16 + UI.TEXTSIZE /2,
-                    */
+                    7*CANVAS_SIZE.y/8 - UI.TEXTSIZE /1.5,
                 );
                 
             }
