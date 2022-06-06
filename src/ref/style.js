@@ -83,3 +83,8 @@ const SFX_LIST = [
     "notif.mp3",
     "thought.mp3",
 ];
+
+const MUSIC_LIST = [
+    "Day.mp3",
+    "MainMenu.mp3"
+];

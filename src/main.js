@@ -46,6 +46,12 @@ function preload() {
     for (let i = 0; i < SFX_LIST.length; i++) { // preloading all sounds at once 
         SFX[SFX_LIST[i].split('.')[0]] = new Audio("./assets/sfx/" + SFX_LIST[i]);
     }
+
+    MUSIC = {} 
+    for (let i = 0; i < MUSIC_LIST.length; i++) { // preloading all sounds at once 
+        MUSIC[MUSIC_LIST[i].split('.')[0]] = new Audio("./assets/music/" + MUSIC_LIST[i]);
+    }
+
 }
 
 function draw() {

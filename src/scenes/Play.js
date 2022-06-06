@@ -28,6 +28,10 @@ class scenePlay {
         // settings
         background(UI.DARK_COLOR);
         noStroke();
+
+        //music
+        MUSIC["MainMenu"].pause();
+        MUSIC["Day"].play();
         
 
         // making sure the selected user is in save

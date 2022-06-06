@@ -12,7 +12,7 @@ class sceneMenu {
     }
     sceneInit() { // runs once when this scene is switched to
         
-        IMG["title.png"].resize(CANVAS_SIZE.x/2, 0);
+        IMG["title.png"].resize(7*CANVAS_SIZE.x/12, 0);
         IMG["button0.png"].resize(CANVAS_SIZE.x/4, 0);
         IMG["button1.png"].resize(CANVAS_SIZE.x/4, 0);
         IMG["menuwingsbg.png"].resize(CANVAS_SIZE.x * 1.5, 0);
@@ -22,6 +22,11 @@ class sceneMenu {
         return;
     }
     sceneDraw() { // runs once per ∆t
+
+        //music
+        MUSIC["Day"].pause();
+        MUSIC["MainMenu"].play();
+
         wingbgTick = (wingbgTick - 1) % (CANVAS_SIZE.x * 1.4);
         heartbgTickX = (heartbgTickX - 2) % (CANVAS_SIZE.x * 1.5);
         heartbgTickY = (heartbgTickY + 0.005) % (2);
@@ -39,7 +44,7 @@ class sceneMenu {
             wingbgTick + (CANVAS_SIZE.x * 1.4),
             -CANVAS_SIZE.y/5,
         );
-        //hearts bg
+        // hearts bg
         image(
             IMG["menuheartsbg.png"],
             heartbgTickX,
@@ -56,19 +61,9 @@ class sceneMenu {
         image(
             IMG["title.png"],
             0,
-            0,
+            CANVAS_SIZE.y/16,
         );
-        buttonPlay.draw();
-
-        /*
-        textSize(CANVAS_SIZE.x/10); text(
-            "The Wing", 
-            CANVAS_SIZE.x/20, CANVAS_SIZE.y/2, 
-            UI.DARK_COLOR,
-        );
-        */
-        
-        
+        buttonPlay.draw();      
         
         if (buttonPlay.isClicked()) {
             changeScene("Play");
