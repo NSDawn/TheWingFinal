@@ -28,7 +28,6 @@ class sceneMenu {
         background(UI.VLIGHT_COLOR);
         
         // wings bg
-        tint(255, 100);
         image(
             IMG["menuwingsbg.png"],
             wingbgTick,
@@ -50,8 +49,6 @@ class sceneMenu {
             heartbgTick + (CANVAS_SIZE.x * 1.5),
             -CANVAS_SIZE.y/5,
         );
-
-        tint(255, 255);
        
        
         // title peepeepoopoo
