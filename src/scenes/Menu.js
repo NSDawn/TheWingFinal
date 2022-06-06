@@ -2,7 +2,7 @@
 let wing_x = 0; let wing_y = 0; let wing_z = 0;
 let button_state = true;
 let buttonPlay;
-let wingbgTick = 0; let heartbgTick = 0;
+let wingbgTick = 0; let heartbgTickX = 0; let heartbgTickY = 0; 
 
 // SCENE (sceneMenu)
 class sceneMenu {
@@ -23,7 +23,8 @@ class sceneMenu {
     }
     sceneDraw() { // runs once per ∆t
         wingbgTick = (wingbgTick - 1) % (CANVAS_SIZE.x * 1.4);
-        heartbgTick = (heartbgTick - 2) % (CANVAS_SIZE.x * 1.5);
+        heartbgTickX = (heartbgTickX - 2) % (CANVAS_SIZE.x * 1.5);
+        heartbgTickY = (heartbgTickY + 0.005) % (2);
         
         background(UI.VLIGHT_COLOR);
         
@@ -41,13 +42,13 @@ class sceneMenu {
         //hearts bg
         image(
             IMG["menuheartsbg.png"],
-            heartbgTick,
-            -CANVAS_SIZE.y/5,
+            heartbgTickX,
+            -CANVAS_SIZE.y/5 + (CANVAS_SIZE.y/16 * Math.sin(heartbgTickY * Math.PI)),
         );
         image(
             IMG["menuheartsbg.png"],
-            heartbgTick + (CANVAS_SIZE.x * 1.5),
-            -CANVAS_SIZE.y/5,
+            heartbgTickX + (CANVAS_SIZE.x * 1.5),
+            -CANVAS_SIZE.y/5 + (CANVAS_SIZE.y/16 * Math.sin(heartbgTickY * Math.PI)),
         );
        
        
