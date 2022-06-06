@@ -309,9 +309,7 @@ class scenePlay {
                     autoScrollDown = true;
                 }
             } else {
-                if (keyJustTyped == "1") {
-                    console.log(save.msg);
-                }
+
                 let nextChar = (currentLine[selectedUser][1] + currentChoice[selectedUser])[currentLineTyped[selectedUser].length]; 
                 // also allow the user to type in multiple options, based on choice
                 let selectChars = "";
@@ -324,8 +322,8 @@ class scenePlay {
 
                 if (skippedChar.includes(nextChar)) {
                     currentLineTyped[selectedUser] += nextChar;
-                } else if (keyJustTyped == nextChar && nextChar != "[") {
-                    currentLineTyped[selectedUser] += keyJustTyped;
+                } else if (keyJustTyped.toLowerCase() == nextChar.toLowerCase()  && nextChar != "[") {
+                    currentLineTyped[selectedUser] += nextChar;
                     typeTick = 31;
                     let randomKey = String(Math.floor(Math.random() * 9) + 1);
                     SFX["key0" + randomKey].play();
@@ -345,12 +343,36 @@ class scenePlay {
                     }
                 }
             }
-        } 
+        } else if (currentLine[selectedUser][0] == "*t") { // if it's a thought message
+            if (currentLine[selectedUser][2]) {
+                currentLine[selectedUser][2] -= 1;
+            } else { 
+                // note any flags
+                if (currentLine[selectedUser][3]) {
+                    save["flag"][currentLine[selectedUser][3]] = 1;
+                }
+                SFX["thought"].play();
+
+                let userSent = selectedUser;
+                // take the line just sent and throw it into the savedata
+                currentSlice[userSent][currentLineNum[userSent]][2] = Date.now();
+                save.msg[userSent].push(currentSlice[userSent][currentLineNum[userSent]]);
+                // move to the next line
+                currentLineNum[userSent]++;
+                currentLine[userSent] = currentSlice[userSent][currentLineNum[userSent]];
+                currentLineTyped[userSent] = "";
+                currentChoice[userSent] = "";
+                if (currentLine[userSent][4]) {
+                    currentChoice[userSent] = "[" + currentLine[userSent][4] + "]";
+                }
+                autoScrollDown = true;
+            }
+        }
 
         // tick everyone's clocks, and send messages when necessary
         let userSent = false;
         for (let i = 0; i < availableUsers.length; i++) {
-            if (!(["*p", "*w"].includes(currentLine[availableUsers[i]][0]))) {
+            if (!(["*p", "*w", "*t"].includes(currentLine[availableUsers[i]][0]))) {
                 if (currentLine[availableUsers[i]][2]) {
                     currentLine[availableUsers[i]][2] -= 1;
                     if (currentLine[availableUsers[i]][0] == "*b" && currentLine[availableUsers[i]][2] == 1 && availableUsers[i] == selectedUser) {
@@ -363,9 +385,7 @@ class scenePlay {
                     }
                     
 
-                    if (currentLine[availableUsers[i]][0] == "*t") { 
-                        SFX["thought"].play()
-                    } else if (availableUsers[i] == selectedUser) {
+                    if (availableUsers[i] == selectedUser) {
                         SFX["key01"].play()
                     } else {
                         SFX["notif"].play()

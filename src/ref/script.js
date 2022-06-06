@@ -69,8 +69,8 @@ let S = {
         ["*p", "i don’t want to think about anything unrelated at the moment", 0, "finishedFirstConvoMom"],
         ["m", "Just keep it in mind. You know your dad and I aren’t getting any", 1000],
         ["m", "younger, and I’m sure you can make some time to think it over.", 0],
-        ["*t", "…does that really matter…? i can’t do this right now.", 200],
-        ["*t", "although, she'd be more annoying though if she knew what my", 0],
+        ["*t", "…does that really matter…? i can’t do this right now.", 100],
+        ["*t", "although, she'd be more annoying though if she knew what my", 100],
         ["*t", "job actually was", 0],
         ["*p", "i will mom. i have to go get ready now, sorry.", 0],
         ["*p", "", 0, "", "bye|talk to you later"],
@@ -233,7 +233,7 @@ let S = {
         ["tp", "im serious!!", 100],
         ["tp", "you're being so chill about it too", 200], 
         ["tp", "let's do it.", 100],
-        ["*t", "is this...what 'normal' people are like...?", 200],
+        ["*t", "is this...what 'normal' people are like...?", 100],
         ["*p", "im down", 0],
         ["tp", "Meet you there... Sunday at 3?", 300],
         ["*p", "wouldn't miss it :)", 0, "tpSuccess"]
@@ -243,11 +243,11 @@ let S = {
         ["*p", "do you have a favorite cafe?", 0],
         ["tp", "wow hmmm", 240],
         ["tp", "actually yes", 500],
-        ["tp", "it's a little pricey and a little rundown, but i'll help u order :)", 240]
+        ["tp", "it's a little pricey and a little rundown, but i'll help u order :)", 240],
         ["tp", "im actually excited about this skskfsks", 100],
         ["tp", "you don't find people on here who are... actually genuine", 300],
         ["tp", "not just thirsty for the date.", 150], 
-        ["*t", "'genuine',,, that kinda hurts, sorry Trish", 150]
+        ["*t", "'genuine',,, that kinda hurts, sorry Trish", 100]
         ["*p", "haha, yeah.", 0]
         ["tp", "look up Midnight Teashop, you'll find it. Meet you there... Sunday at 3?", 300],
         ["*p", "wouldn't miss it :)", 0, "tpSuccess"]
