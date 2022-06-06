@@ -355,8 +355,8 @@ let S = {
         ["tp", "im actually excited about this skskfsks", 100],
         ["tp", "you don't find people on here who are... actually genuine", 300],
         ["tp", "not just thirsty for the date.", 150], 
-        ["*t", "'genuine',,, that kinda hurts, sorry Trish", 100]
-        ["*p", "haha, yeah.", 0]
+        ["*t", "'genuine',,, that kinda hurts, sorry Trish", 100],
+        ["*p", "haha, yeah.", 0],
         ["tp", "look up Midnight Teashop, you'll find it. Meet you there... Sunday at 3?", 300],
         ["*p", "wouldn't miss it :)", 0, "tpSuccessB"],
         ["*w", "", 0],
