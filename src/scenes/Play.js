@@ -341,7 +341,7 @@ class scenePlay {
                     currentSelectedChoice[selectedUser] = selectChars.indexOf(keyJustTyped);
                     currentChoice[selectedUser] = currentChoice[selectedUser].replace("[", "").replace("]", "").split("|")[currentSelectedChoice[selectedUser]];
 
-                } else if (keyJustTyped == "*skip") { // debugging, delete after testing is done!!
+                } else if (keyJustTyped == "*skip" || keyJustTyped == "$") { // debugging, delete after testing is done!!
                     currentLineTyped[selectedUser] = currentLine[selectedUser][1];
                 }
                 

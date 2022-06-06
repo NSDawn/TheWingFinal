@@ -28,6 +28,7 @@ class sceneMenu {
         MUSIC["Day"].pause();
         MUSIC["MainMenu"].play();
         MUSIC["Credits"].pause();
+        
 
         wingbgTick = (wingbgTick - 1) % (CANVAS_SIZE.x * 1.4);
         heartbgTickX = (heartbgTickX - 2) % (CANVAS_SIZE.x * 1.5);
@@ -84,6 +85,13 @@ class sceneMenu {
         if (buttonCredits.isClicked()) {
             changeScene("Credits");
         }
+
+        // delete later!!
+        fill(UI.VDARK_COLOR); textSize(UI.TEXTSIZE); text(
+            "vsn 1.0.0: here you go queen u can type '$' to skip",
+            0,
+            UI.TEXTSIZE * 1.5,
+        );
         
         return;
     } 
