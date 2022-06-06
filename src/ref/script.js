@@ -181,7 +181,7 @@ let S = {
         ["*t", "get a hobby man", 100],
         ["*p", "As The Wing, I'm not able to do that.", 0],
         ["fj", "Just leave me! Hereupon I shall live forever alone", 150],
-        ["*p", "We hope to see you again, Felix.", 0],
+        ["*p", "We hope to see you again, Felix.", 0, "d1_end"],
         ["*t", "We really don't...", 100],
         ["*w", "", 0],
     ],
@@ -207,7 +207,7 @@ let S = {
         ["*t", "just leave it,,"]
         ["fj", "I'll update you on how the date goes... Professor Wing", 240],
         ["*t", "please don't,,"]
-        ["*p", "We hope to see you again, Felix.", 0],
+        ["*p", "We hope to see you again, Felix.", 0, "d1_end"],
         ["*t", "i'm actually gonna hear from him again... aren't I?", 100],
         ["*t", "damn customer service,,,", 100],
         ["*w", "", 0],
@@ -229,7 +229,7 @@ let S = {
         ["*t", "honestly relateable", 100],
         ["fj", "Anyway, this is really nice! I'm proud to call you my wing.", 240],
         ["*t", "???", 100],
-        ["*p", "We hope to see you again, Felix.", 0],
+        ["*p", "We hope to see you again, Felix.", 0, "d1_end"],
         ["*w", "", 0],
     ],
     "d1_fj_tpSuccessC" : [
@@ -251,7 +251,7 @@ let S = {
         ["fj", "She'll love seeing my french press collection!", 240],
         ["*t", "all thirty-four of them,,", 100],
         ["*t", "at least he's happy though.", 100],
-        ["*p", "We hope to see you again, Felix.", 0],
+        ["*p", "We hope to see you again, Felix.", 0, "d1_end"],
         ["*w", "", 0],
     ],
     "d1_tpA" : [
@@ -407,13 +407,121 @@ let S = {
     ],
     
 
-    "d1_endOfDemo" : [
-        ["kc", "----------------------------", 300],
-        ["kc", "Thank you for reaching the end of the demo.", 0],
-        ["kc", "Stay tuned for more!", 60],
-        ["*w", "", 0],
-    ],
-    
+    "d1_mB" : [ 
+        ["m", "Hello, I just wanted to check up on you", 100],
+["m", "after your first day.", 60],
+["m", "Am I too early?", 60],
+ 
+["*p", "no, no, now is fine.", 0],
+ 
+["m", "So how was it?", 100],
+	
+	["*p", "well, you know", 0],
+["*p", "I think it went ok.", 0],
+	["*p", "everyone was nice.", 0],
+
+["*t", "that’s not a complete lie i guess.", 100],
+ 
+["m", "I see.", 100],
+["m", "You really won’t tell me any details?", 100],
+
+["*p", "i want to, but i’m not sure if my boss would be happy about it.", 0],
+	["*p", "i’m dealing with people personally, so...", 0],
+
+["*t", "a likely excuse, i should just be honest sooner or later ", 100],
+
+["m", "You should really be able to tell everything to your own Mother.", 100],
+
+	["*p", "it’s not my control, im sorry", 0],
+
+["m", "If you say so,", 100],
+["m", "I also wanted to talk about your future", 100],
+
+	["*t", "oh no.", 100],
+
+	["m", "About meeting someone, like me and your dad", 100],
+
+["*p", "Oh. That.", 0],
+
+	["*t", "it’s not like i didnt see this coming.", 100],
+["*t", "it’s usually normal for people like me ", 100],
+
+["m", "Yes? That.", 100],
+ 
+["*p", "i think that’s something", 0],
+	["*p", "i’m too busy for at the moment", 0],
+
+["*t", "stay cool, just speak normally.", 100],
+
+	["m", "I know you're busy,", 100],
+	["m", "but that's something you have to make time for eventually.", 100],
+	["m", "Some things are more important than work.", 100],
+
+	["*p", "yes, im aware.", 0],
+
+	["*t", "i just dont think this is important to me at all", 100],
+	
+	["*p", "i'll think it over,", 0],
+["*p", "since you're so adamant about it.", 0],
+
+["m", "Okay, I'm glad you're finally listening to me", 100],
+
+	["*t", ".....", 100],
+["*t", "is this really what i want? is this how it should end,,", 100],
+	["*t", "...", 100],
+	["*t", "no", 100],
+	["*t", "this isn't right", 100],
+	["*t", "i never, never say what i want", 100],
+	["*t", "whether its in this job", 100],
+	["*t", "or to everyone i care about", 100],
+	["*t", "...", 100],
+	["*t", "let me be honest,, for once,", 100],
+
+	["*p", "Actually.. i need to tell you something", 0],
+
+	["m", "?", 100],
+	["m", "What is it?", 100],
+	
+["*t", "...", 100],
+	["*t", "deep breaths", 100],
+
+	["*p", "so ive come to realize", 0],
+	["*p", "that i just dont want the same things that you want", 0],
+	["*p", "i dont want to get married,", 0],
+	["*p", "or involved with someone at all", 0],
+	["*p", "i dont understand it", 0],
+	["*p", "even though ive tried really hard to", 0],
+	["*p", "and i want to stop pretending that i do", 0],
+	["*p", "taking on this job made me realize", 0],
+	["*p", "how exhausting it is to pretend", 0],
+	["*p", "how long ive been pretending", 0],
+	["*p", "and i dont want to do that anymore", 0],
+	["*p", "i would appreciate if you would respect my wishes", 0],
+	["*p", "and not push it any further", 0],
+	
+["m", "...", 100],
+	["m", "So that's what it was.", 100],
+	["m", "I had the feeling that you weren't yourself lately.", 100],
+	["m", "This is a lot to take in so suddenly.", 180],
+	["m", "If you were feeling like this why didn't you say anything?", 180],	
+	["*p", "because i was ", 0, "", "afraid|afraid"],
+	["*p", "i was so afraid,", 0],	
+	["*p", "and i tried to ignore the feeling that something was wrong", 0],
+	["*p", "but the more i try, the worse it gets", 0],
+	["*p", "i shouldnt have lied for so long", 0],
+	
+["m", "...", 100],
+	["m", "I am trying to grasp this fully.", 100],
+	["m", "I'm sorry it might take some time", 100],
+	["m", "We'll need to talk about it together some more", 100],
+	["m", "Can you come visit us?", 100],
+	["m", "I think we have a lot to talk about.", 100],
+	
+	["*t", "...", 100],
+["*t", "i guess we do", 100, "END"],
+        ["*w", "", 0]
+
+    ]
     
     
 }

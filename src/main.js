@@ -134,5 +134,5 @@ function translateTime(in_int) {
 }
 
 function startGame() {
-    runSlice("d1_fjA", "fj");
+    runSlice("d1_mB", "m");
 }

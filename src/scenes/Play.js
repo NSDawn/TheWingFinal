@@ -20,7 +20,6 @@ class scenePlay {
         return;
     }
     sceneInit() { // runs once when this scene is switched to  
-        console.log(currentLine);
         
         //runSlice("d1_kcC", "kc");
         //runSlice("d1_fjA", "fj");
@@ -292,10 +291,6 @@ class scenePlay {
 
 
         // RUNNING THE GAME
-
-        if (keyJustTyped == "1") {
-            console.log(save["flag"])
-        }
 
         // IF IT'S THE PLAYER'S TURN allow them to type responses
         if (currentLine[selectedUser][0] == "*p") {

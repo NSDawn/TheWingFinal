@@ -168,6 +168,25 @@ function updateStory() {
         runSlice("d1_fj_tpSuccessC", "fj");
         save.flag["ran_d1_fj_tpSuccessC"] = true;
     }
+
+    if ((Boolean(save.flag["d1_end"])) && !Boolean(save.flag["ran_d1_mB"])) {
+        runSlice("d1_mB", "m");
+        save.flag["ran_d1_mB"] = true;
+    }
+
+    if ((Boolean(save.flag["d1_end"])) && !Boolean(save.flag["ran_d1_mB"])) {
+        runSlice("d1_mB", "m");
+        save.flag["ran_d1_mB"] = true;
+        save["flag"]["endDelay"] = 0;
+    }
+    
+    if (Boolean(save.flag["END"])) {
+        if (save["flag"]["endDelay"] < 1000) {
+            save["flag"]["endDelay"] += 1;
+        } else {
+            changeScene("Credits");
+        }
+    }
     
     
     
