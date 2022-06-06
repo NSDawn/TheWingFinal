@@ -21,7 +21,8 @@ class scenePlay {
     }
     sceneInit() { // runs once when this scene is switched to  
         runSlice("d1_kcA", "kc");
-        //runSlice("d1_fjA", "fj");
+        runSlice("d1_fjA", "fj");
+        //runSlice("d1_tpC2", "tp");
         return;
     }
     sceneDraw() { // runs once per ∆t

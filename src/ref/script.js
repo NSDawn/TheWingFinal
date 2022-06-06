@@ -149,22 +149,111 @@ let S = {
     ],
     
     "d1_tpA" : [
-        ["*p", "hey there.", 0], 
+        ["*p", "hey there.", 0],
         ["tp", "hi.", 300],
         ["*p", "your profile says you like tea.", 0],
         ["*p", "", 0, "tpA_openingLine", "tell me about it|i think you're beauTEAful."],
         ["*w", "", 0],
     ],
-    
+   
     "d1_tpB0" : [
-        ["tp", "yikes.", 300, "endOfDemo",],
+        ["tp", "yikes.", 300, "tpFail",],
         ["*b", "", 60],
     ],
-    
+   
     "d1_tpB1" : [
-        ["tp", "oh, I'd love to.", 300, "endOfDemo",],
+        ["tp", "oh, I'd love to.", 300,],
+        ["tp", "idk i wouldn't say im an expert but", 140],
+        ["tp", "hehe what can i tell you about?", 140],
+        ["*p", "i really like ", 0, "d1_tpB1_choiceCoffeeTea", "coffee|tea"],
         ["*w", "", 0],
     ],
+    "d1_tpC1" : [
+        ["*p", "so, what tea do you think i'd like?", 300,],
+        ["tp", "it really depends what kind of coffee you like ;;", 240],
+        ["tp", "but maybe black tea?", 140],
+        ["tp", "...or maybe", 300],
+        ["tp", "some cafes they do this thing... called a dirty chai", 240],
+        ["tp", "it's like...a indian chai with a shot of espresso", 140],
+        ["*p", "oh?", 0],
+        ["*p", "", 0, "d1_tpC1_choiceLocation", "can you get that at Barstucks?|any cafe you recommend?"],
+        ["*w", "", 0],
+    ],
+    "d1_tpC2" : [
+        ["tp", "oh?", 140],
+        ["tp", "what kind?", 140],
+        ["*p", "uh...", 0, "", "green|boba|chai"],
+        ["tp", "real convincing with the coffee pfp.", 240],
+        ["tp", "jk jk", 100],
+        ["tp", "but im a little wary cause", 100],
+        ["tp", "there's people who'll just say whatever for the date.", 150],
+        ["*p", "ah, yeah, makes sense.", 0], 
+        ["*p", "i actually really like ", 0, "d1_tpC2_choiceAssertion", "coffee|tea"],
+        ["*w", "", 0],
+    ],
+    "d1_tpD1" : [
+        ["tp", "Barstucks?", 100],
+        ["tp", "self-proclaimed coffee liker enjoys Barstucks?", 240],
+        ["*p", "", 0, "", "yeah, and what of it?|ah, sorry you're right"],
+        ["tp", "dw dw just messing with u.", 240],
+        ["tp", "but no, ofc you couldn't get it there.", 240],
+        ["*p", "oh", 0],
+        ["tp", "you want to take me to Barstucks?", 300],
+        ["*p", "", 0, "d1_tpD1_choiceBarstucks", "definitely!|uh... sure|hmm..."],
+        ["*w", "", 0,]
+    ],
+    "d1_tpD2" : [
+        ["tp", "ahhh... gotcha.", 240], 
+        ["tp", "maybe I could fix you lol", 210],
+        ["*p", "", 0, "d1_tpD2_choiceDate", "on... a date ;)?|i'm open to it :)"],
+        ["*w", "", 0],
+    ],
+    "d1_tpD3" : [
+        ["tp", "cool.", 240],
+        ["tp", "continue writing here Nishant", 300],
+        ["w", "", 0],
+    ],
+    "d1_tpE1": [
+        ["tp", "uhh...", 150],
+        ["tp", "forgive me, you're probably a really nice guy but", 240], 
+        ["tp", "a little too eager idk", 240], 
+        ["*t", "ah shoot", 100],
+        ["tp", "let's just shelve this one, okay?", 240], 
+        ["tp", "nice meeting you?", 240],
+        ["*p", "sure. nice meeting you too.", 0, "tpFail"],
+        ["*w", "", 0],
+    ],   
+    "d1_tpE2" : [
+        ["tp", "sounds kinda lame lol", 200],
+        ["*p", "", 0, "", "ouch|ah, sorry"],
+        ["tp", "no no, in kind of a cute way", 200],
+        ["tp", "skskskgs i mean... i'd refuse but", 400],
+        ["tp", "there's something about how dumb this is", 200], 
+        ["*p", "wow", 0],
+        ["tp", "im serious!!", 100],
+        ["tp", "you're being so chill about it too", 200], 
+        ["tp", "let's do it.", 100],
+        ["*t", "is this...what 'normal' people are like...?", 200],
+        ["*p", "im down", 0],
+        ["tp", "Meet you there... Sunday at 3?", 300],
+        ["*p", "wouldn't miss it :)", 0, "tpSuccess"]
+        ["*w", "", 0],
+    ],
+    "d1_tpE3" : [
+        ["*p", "do you have a favorite cafe?", 0],
+        ["tp", "wow hmmm", 240],
+        ["tp", "actually yes", 500],
+        ["tp", "it's a little pricey and a little rundown, but i'll help u order :)", 240]
+        ["tp", "im actually excited about this skskfsks", 100],
+        ["tp", "you don't find people on here who are... actually genuine", 300],
+        ["tp", "not just thirsty for the date.", 150], 
+        ["*t", "'genuine',,, that kinda hurts, sorry Trish", 150]
+        ["*p", "haha, yeah.", 0]
+        ["tp", "look up Midnight Teashop, you'll find it. Meet you there... Sunday at 3?", 300],
+        ["*p", "wouldn't miss it :)", 0, "tpSuccess"]
+        ["*w", "", 0]
+    ],
+    
 
     "d1_endOfDemo" : [
         ["kc", "----------------------------", 300],
@@ -173,22 +262,6 @@ let S = {
         ["*w", "", 0],
     ],
     
-    "d1_tp" : [
-        ["tp", "test", 100],
-        ["*p", "test", 0], 
-        ["tp", "test", 100],
-        ["tp", "test", 100],
-        ["tp", "test", 100],
-        ["tp", "test", 100],
-        ["tp", "test", 100],
-        ["*p", "test", 0], 
-        ["tp", "test", 100],
-        ["tp", "test", 100],
-        ["tp", "test", 100],
-        ["tp", "test", 100],
-        ["tp", "test", 100],
-        ["*p", "test", 0], 
-    ],
-
+    
     
 }

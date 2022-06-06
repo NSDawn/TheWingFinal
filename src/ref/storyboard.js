@@ -29,12 +29,13 @@ function updateStory() {
         save.flag["ran_d1_fjA"] = true;
     }
 
+    // FELIX & TRISH
     if (Boolean(save.flag["finishedFirstConvoFelix"]) && !Boolean(save.flag["ran_d1_tpA"])) {
         runSlice("d1_tpA", "tp");
         save.flag["ran_d1_tpA"] = true;
     }
 
-    if (Boolean(save.flag["finishedFirstConvoFelix"]) && Boolean(save.flag["tpA_openingLine"] + 1)) {
+    if (Boolean(save.flag["tpA_openingLine"] + 1)) {
         switch (save.flag["tpA_openingLine"]) {
             case 0:
                 runSlice("d1_tpB1", "tp");
@@ -46,10 +47,73 @@ function updateStory() {
         save.flag["tpA_openingLine"] = -1;
     }
 
-    if (Boolean(save.flag["endOfDemo"]) && !Boolean(save.flag["ran_d1_endOfDemo"])) {
-        runSlice("d1_endOfDemo", "tp");
-        save.flag["ran_d1_endOfDemo"] = true;
+    if (Boolean(save.flag["d1_tpB1_choiceCoffeeTea"] + 1)) {
+        switch (save.flag["d1_tpB1_choiceCoffeeTea"]) {
+            case 0:
+                runSlice("d1_tpC1", "tp");
+                break;
+            case 1:
+                runSlice("d1_tpC2", "tp");
+                break;
+        }
+        save.flag["d1_tpB1_choiceCoffeeTea"] = -1;
     }
+
+    if (Boolean(save.flag["d1_tpC1_choiceLocation"] + 1)) {
+        switch (save.flag["d1_tpC1_choiceLocation"]) {
+            case 0:
+                runSlice("d1_tpD1", "tp");
+                break;
+            case 1:
+                runSlice("d1_tpE3", "tp");
+                break;
+        }
+        save.flag["d1_tpC1_choiceLocation"] = -1;
+    }
+
+    if (Boolean(save.flag["d1_tpC2_choiceAssertion"] + 1)) {
+        switch (save.flag["d1_tpC2_choiceAssertion"]) {
+            case 0:
+                runSlice("d1_tpD2", "tp");
+                break;
+            case 1:
+                runSlice("d1_tpD3", "tp");
+                break;
+        }
+        save.flag["d1_tpC2_choiceAssertion"] = -1;
+    }
+
+    if (Boolean(save.flag["d1_tpD1_choiceBarstucks"] + 1)) {
+        switch (save.flag["d1_tpD1_choiceBarstucks"]) {
+            case 0:
+                runSlice("d1_tpE1", "tp");
+                break;
+            case 1:
+                runSlice("d1_tpE2", "tp");
+                break;
+            case 2: 
+                runSlice("d1_tpE3", "tp");
+                break;
+        }
+        save.flag["d1_tpD1_choiceBarstucks"] = -1;
+    }
+    
+    if (Boolean(save.flag["d1_tpD2_choiceDate"] + 1)) {
+        switch (save.flag["d1_tpD2_choiceDate"]) {
+            case 0:
+                runSlice("d1_tpE1", "tp");
+                break;
+            case 1:
+                runSlice("d1_tpC1", "tp");
+                break;
+        }
+        save.flag["d1_tpD2_choiceDate"] = -1;
+    }
+
+
+
+
+    
     
 
 
