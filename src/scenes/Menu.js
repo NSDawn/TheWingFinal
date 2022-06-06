@@ -2,6 +2,7 @@
 let wing_x = 0; let wing_y = 0; let wing_z = 0;
 let button_state = true;
 let buttonPlay;
+let wingbgTick = 0; let heartbgTick = 0;
 
 // SCENE (sceneMenu)
 class sceneMenu {
@@ -10,44 +11,50 @@ class sceneMenu {
         return;
     }
     sceneInit() { // runs once when this scene is switched to
-        for(let i = 0; i <5;i++){
-            let photo_name = "wing" + String(i) + ".png";
-            IMG[photo_name].resize(CANVAS_SIZE.x/4,0);
-        }
+        
         IMG["title.png"].resize(CANVAS_SIZE.x/2, 0);
         IMG["button0.png"].resize(CANVAS_SIZE.x/4, 0);
         IMG["button1.png"].resize(CANVAS_SIZE.x/4, 0);
+        IMG["menuwingsbg.png"].resize(CANVAS_SIZE.x * 1.5, 0);
+        IMG["menuheartsbg.png"].resize(CANVAS_SIZE.x * 1.5, 0);
 
-        buttonPlay = new Button(new v2(CANVAS_SIZE.x/2, CANVAS_SIZE.y/2), "START GAME");
+        buttonPlay = new Button(new v2(4*CANVAS_SIZE.x/6, 9*CANVAS_SIZE.y/12), "START >>");
         return;
     }
     sceneDraw() { // runs once per ∆t
+        wingbgTick = (wingbgTick - 1) % (CANVAS_SIZE.x * 1.5);
+        heartbgTick = (heartbgTick - 2) % (CANVAS_SIZE.x * 1.5);
         
         background(UI.VLIGHT_COLOR);
-        /*
-        // wing background
-        for(let i = 1; i < 9; i++){
-            for(let j = 0; j < 9; j++){
-                if ((i==1 || i==5) && (j ==3 || j==7)){
-                    wing_z = 1
-                } else if((i==2 || i==6) && (j ==3 || j==7)){
-                    wing_z = 2
-                } else if((i==3 || i==7) && (j ==3 || j==7)){
-                    wing_z = 3
-                } else if((i==4 || i==8) && (j ==3 || j==7)){
-                    wing_z = 4
-                } else{ 
-                    wing_z = 0
-                }
-                tint(255, 100);
-                image(IMG["wing" + String(wing_z) + ".png"],((-750+wing_x+150*i)),((-500+wing_y+100*j)))
-                tint(255, 255);
-            }
-        }
-        wing_x = (wing_x + 1) %(CANVAS_SIZE.x)
-        wing_y = (wing_y + 2)%(CANVAS_SIZE.y)
-        */
+        
+        // wings bg
+        tint(255, 100);
+        image(
+            IMG["menuwingsbg.png"],
+            wingbgTick,
+            -CANVAS_SIZE.y/5,
+        );
+        image(
+            IMG["menuwingsbg.png"],
+            wingbgTick + (CANVAS_SIZE.x * 1.5),
+            -CANVAS_SIZE.y/5,
+        );
+        //hearts bg
+        image(
+            IMG["menuheartsbg.png"],
+            heartbgTick,
+            -CANVAS_SIZE.y/5,
+        );
+        image(
+            IMG["menuheartsbg.png"],
+            heartbgTick + (CANVAS_SIZE.x * 1.5),
+            -CANVAS_SIZE.y/5,
+        );
 
+        tint(255, 255);
+       
+       
+        // title peepeepoopoo
         image(
             IMG["title.png"],
             0,
@@ -65,7 +72,7 @@ class sceneMenu {
         
         
         
-        if (keyJustTyped == "x") {
+        if (buttonPlay.isClicked()) {
             changeScene("Play");
         }
         
@@ -77,7 +84,7 @@ class Button {
     constructor (in_pos, in_text) {
         this.pos = in_pos;
         this.text = in_text;
-        this.isDown = false;
+        this.hasClicked = false;
         this.size = CANVAS_SIZE.x/4;
         this.sprite = 0;
         
@@ -105,13 +112,21 @@ class Button {
         fill(this.text_color); textSize(UI.TEXTSIZE), text(
             this.text, 
             this.pos.x + this.size/2 - (this.shift * this.sprite *2) ,
-            this.pos.y + this.size/5 + (this.shift * this.sprite), 
+            this.pos.y + this.size/6 + (this.shift * this.sprite), 
         );
         textAlign(LEFT, BOTTOM);
 
+        if (mouseJustClicked && Boolean(this.sprite)) {
+            this.hasClicked = true;
+        }
+
     }
 
-    isDown () {
-
+    isClicked () {
+        if (this.hasClicked) {
+            this.hasClicked = false;
+            return true;
+        }
+        return false;
     }
 }

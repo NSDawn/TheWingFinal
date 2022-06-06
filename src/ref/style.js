@@ -66,11 +66,8 @@ const IMG_LIST = [
     "title.png",
     "button0.png",
     "button1.png",
-    "wing0.png",
-    "wing1.png",
-    "wing2.png",
-    "wing3.png",
-    "wing4.png",
+    "menuwingsbg.png",
+    "menuheartsbg.png",
 ];
 
 const SFX_LIST = [
