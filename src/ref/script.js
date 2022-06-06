@@ -250,7 +250,7 @@ let S = {
         ["fj", "You're a genius, Wing!", 100],
         ["fj", "She'll love seeing my french press collection!", 240],
         ["*t", "all thirty-four of them,,", 100],
-        ["*t", "at least he's wholesome though.", 100],
+        ["*t", "at least he's happy though.", 100],
         ["*p", "We hope to see you again, Felix.", 0],
         ["*w", "", 0],
     ],

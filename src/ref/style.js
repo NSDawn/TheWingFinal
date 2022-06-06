@@ -63,6 +63,8 @@ const IMG_LIST = [
 
     "mascot.png",
 
+    "credits.png", 
+
     "title.png",
     "button0.png",
     "button1.png",
@@ -86,5 +88,6 @@ const SFX_LIST = [
 
 const MUSIC_LIST = [
     "Day.mp3",
-    "MainMenu.mp3"
+    "MainMenu.mp3",
+    "Credits.mp3",
 ];

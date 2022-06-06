@@ -16,6 +16,7 @@
 const SCENES = { // everytime you make a new scene, you need to put it into this dictionary.
     "Play" : new scenePlay,
     "Menu": new sceneMenu,
+    "Credits": new sceneCredits,
 };
 
 let currentScene = "Menu";

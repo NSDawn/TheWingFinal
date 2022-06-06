@@ -37,6 +37,7 @@ class scenePlay {
         //music
         MUSIC["MainMenu"].pause();
         MUSIC["Day"].play();
+        MUSIC["Credits"].pause();
         
 
         // making sure the selected user is in save
