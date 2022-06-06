@@ -80,7 +80,7 @@ let S = {
     ], 
     
     "d1_fA" : [
-        ["f", "hey ! how’s everything ?", 0],
+        ["f", "hey ! how’s everything ?", 100],
         ["f", "did you manage to snag that job you kept talking to me about lol", 120],
         ["f", "it’s kind of funny how excited you were about it", 150],
         ["f", "even though its pretty sketchy", 100],
@@ -122,7 +122,7 @@ let S = {
     ], 
 
     "d1_fjA" : [
-        ["fj", "Hello?", 0], 
+        ["fj", "Hello?", 100], 
         ["fj", "I am FELIX JOEL.", 120], 
         ["*p", "This is The Wing. How may I help you?", 0],
         ["fj", "So...", 80],
@@ -145,6 +145,19 @@ let S = {
         ["fj", "That's all I got.", 180],
         ["fj", "Keep me posted, Wing", 60, "finishedFirstConvoFelix"],
         ["*p", "Understood.", 0],
+        ["*w", "", 0],
+    ],
+    "d1_fjB1" : [
+        ["fj", "Oh..... also one more thing!", 200],
+        ["fj", "PLEASE", 100],
+        ["fj", "please please please", 100],
+        ["fj", "don't lie to her", 100],
+        ["fj", "like i know this,, whole... Wingy thing is lying but", 240],
+        ["fj", "that's for a GOOD reason!", 100],
+        ["fj", "I would really like to start with no lies...!", 100],
+        ["*t", "uhh... you tell me this now...?", 100],
+        ["*p", "Okay, I will keep that in mind.", 0, "d1_fjB1_talkedtoFelix"],
+        ["*t", "you better not give me any more conditions, Felix...", 100],
         ["*w", "", 0],
     ],
     
@@ -210,9 +223,11 @@ let S = {
     ],
     "d1_tpD3" : [
         ["tp", "cool.", 240],
-        ["tp", "continue writing here Nishant", 300],
+        ["tp", "you're passionate about tea, like me :)", 300, "d1_tpD3_liedToTrish"],
+        ["*p", "yeah", 0],
         ["w", "", 0],
     ],
+    
     "d1_tpE1": [
         ["tp", "uhh...", 150],
         ["tp", "forgive me, you're probably a really nice guy but", 240], 
@@ -252,6 +267,10 @@ let S = {
         ["tp", "look up Midnight Teashop, you'll find it. Meet you there... Sunday at 3?", 300],
         ["*p", "wouldn't miss it :)", 0, "tpSuccess"]
         ["*w", "", 0]
+    ],
+    "d1_tpE4" : [
+        
+        ["w", "", 0],
     ],
     
 

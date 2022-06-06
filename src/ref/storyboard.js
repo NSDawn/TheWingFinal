@@ -110,6 +110,15 @@ function updateStory() {
         save.flag["d1_tpD2_choiceDate"] = -1;
     }
 
+    if (Boolean(save.flag["d1_tpD3_liedToTrish"]) && !Boolean(save.flag["ran_d1_fjB1"])) {
+        runSlice("d1_fjB1", "fj");
+        save.flag["ran_d1_fjB1"] = true;
+    }
+    if (Boolean(save.flag["d1_fjB1_talkedtoFelix"]) && !Boolean(save.flag["ran_d1_tpE4"])) {
+        runSlice("d1_tpE4", "tp");
+        save.flag["ran_d1_tpE4"] = true;
+    }
+
 
 
 
