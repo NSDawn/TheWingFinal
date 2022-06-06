@@ -22,7 +22,7 @@ class sceneMenu {
         return;
     }
     sceneDraw() { // runs once per ∆t
-        wingbgTick = (wingbgTick - 1) % (CANVAS_SIZE.x * 1.5);
+        wingbgTick = (wingbgTick - 1) % (CANVAS_SIZE.x * 1.4);
         heartbgTick = (heartbgTick - 2) % (CANVAS_SIZE.x * 1.5);
         
         background(UI.VLIGHT_COLOR);
@@ -35,7 +35,7 @@ class sceneMenu {
         );
         image(
             IMG["menuwingsbg.png"],
-            wingbgTick + (CANVAS_SIZE.x * 1.5),
+            wingbgTick + (CANVAS_SIZE.x * 1.4),
             -CANVAS_SIZE.y/5,
         );
         //hearts bg
