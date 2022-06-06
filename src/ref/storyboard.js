@@ -119,9 +119,57 @@ function updateStory() {
         save.flag["ran_d1_tpE4"] = true;
     }
 
+    if (Boolean(save.flag["d1_tpE4_aboutTea"] + 1)) {
+        switch (save.flag["d1_tpE4_aboutTea"]) {
+            case 0:
+                runSlice("d1_tpF1", "tp");
+                break;
+            case 1:
+                runSlice("d1_tpE1", "tp");
+                break;
+        }
+        save.flag["d1_tpE4_aboutTea"] = -1;
+    }
 
+    if (Boolean(save.flag["d1_tpF1_choiceDate"] + 1)) {
+        switch (save.flag["d1_tpF1_choiceDate"]) {
+            case 0:
+                runSlice("d1_tpB0", "tp");
+                break;
+            case 1:
+                runSlice("d1_tpG1", "tp");
+                break;
+        }
+        save.flag["d1_tpF1_choiceDate"] = -1;
+    }
 
+    if (Boolean(save.flag["tpFail"]) && !Boolean(save.flag["ran_d1_nk_tpFail"])) {
+        runSlice("d1_nk_tpFail", "nk");
+        save.flag["ran_d1_nk_tpFail"] = true;
+    }
+    if (((Boolean(save.flag["tpSuccessA"])) || (Boolean(save.flag["tpSuccessB"])) || (Boolean(save.flag["tpSuccessC"]))) && !Boolean(save.flag["ran_d1_nk_tpSuccess"])) {
+        runSlice("d1_nk_tpSuccess", "nk");
+        save.flag["ran_d1_nk_tpSuccess"] = true;
+    }
 
+    if ((Boolean(save.flag["tpFail"]) && (Boolean(save.flag["tpDebrief"]))) && !Boolean(save.flag["ran_d1_fj_tpFail"])) {
+        runSlice("d1_fj_tpFail", "fj");
+        save.flag["ran_d1_fj_tpFail"] = true;
+    }
+    if ((Boolean(save.flag["tpSuccessA"]) && (Boolean(save.flag["tpDebrief"]))) && !Boolean(save.flag["ran_d1_fj_tpSuccessA"])) {
+        runSlice("d1_fj_tpSuccessA", "fj");
+        save.flag["ran_d1_fj_tpSuccessA"] = true;
+    }
+    if ((Boolean(save.flag["tpSuccessB"]) && (Boolean(save.flag["tpDebrief"]))) && !Boolean(save.flag["ran_d1_fj_tpSuccessB"])) {
+        runSlice("d1_fj_tpSuccessB", "fj");
+        save.flag["ran_d1_fj_tpSuccessB"] = true;
+    }
+    if ((Boolean(save.flag["tpSuccessC"]) && (Boolean(save.flag["tpDebrief"]))) && !Boolean(save.flag["ran_d1_fj_tpSuccessC"])) {
+        runSlice("d1_fj_tpSuccessC", "fj");
+        save.flag["ran_d1_fj_tpSuccessC"] = true;
+    }
+    
+    
     
     
 

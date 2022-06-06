@@ -11,7 +11,7 @@ let notif = {};
 let typeTick = 0; // referenced for the | thing, and for the typing... message 
 let scrollOffset = 0; let maxScroll = 0;
 let scrollOffsetUsers = 0; let maxScrollUsers = 0;
-let autoScrollDown = false; let autoScrollDownTick = 2;
+let autoScrollDown = false; let autoScrollDownTick = 3;
 
 // SCENE (scenePlay)
 class scenePlay {
@@ -20,9 +20,13 @@ class scenePlay {
         return;
     }
     sceneInit() { // runs once when this scene is switched to  
-        runSlice("d1_kcA", "kc");
-        // runSlice("d1_fjA", "fj");
+        
+        //runSlice("d1_kcC", "kc");
+        runSlice("d1_fjA", "tp");
         //runSlice("d1_tpC2", "tp");
+        
+        
+        selectedUser = availableUsers[0];
         return;
     }
     sceneDraw() { // runs once per ∆t
@@ -274,6 +278,10 @@ class scenePlay {
 
         // RUNNING THE GAME
 
+        if (keyJustTyped == "1") {
+            console.log(save["flag"])
+        }
+
         // IF IT'S THE PLAYER'S TURN allow them to type responses
         if (currentLine[selectedUser][0] == "*p") {
             const skippedChar = `"'.!?,’`;
@@ -380,8 +388,8 @@ class scenePlay {
                     }
                 } else if (currentLine[availableUsers[i]][0] != "*b") {
                     // note any flags
-                    if (currentLine[selectedUser][3]) {
-                        save["flag"][currentLine[selectedUser][3]] = 1;
+                    if (currentLine[availableUsers[i]][3]) {
+                        save["flag"][currentLine[availableUsers[i]][3]] = 1;
                     }
                     
 
@@ -443,10 +451,11 @@ class scenePlay {
         if (autoScrollDown) {
             if (autoScrollDownTick > 0) {
                 autoScrollDownTick -= 1;
+                scrollOffset = maxScroll;
             } else {
                 scrollOffset = maxScroll;
                 autoScrollDown = false;
-                autoScrollDownTick = 2;
+                autoScrollDownTick = 3;
             }
         }
         
