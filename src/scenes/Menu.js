@@ -98,7 +98,7 @@ class sceneMenu {
 
         // delete later!!
         fill(UI.VDARK_COLOR); textSize(UI.TEXTSIZE); text(
-            "vsn 1.0.1: roll credits!",
+            "vsn 1.0.3: aaAAAAAaAAAAAAaa",
             0,
             UI.TEXTSIZE * 1.5,
         );
