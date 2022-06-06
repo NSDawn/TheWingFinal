@@ -35,8 +35,8 @@ function preload() {
         SCENES[s].scenePreload();
     }
 
-    FONT = loadFont("./assets/fonts/compositeFontB.ttf");
-    // FONT = loadFont("./assets/fonts/MPLUS1p-Regular.ttf"); // the font!
+    // FONT = loadFont("./assets/fonts/compositeFontB.ttf");
+    FONT = loadFont("./assets/fonts/MPLUS1p-Regular.ttf"); // the font!
 
     IMG = {}
     for (let i = 0; i < IMG_LIST.length; i++) { // preloading all images at once
