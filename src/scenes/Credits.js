@@ -14,6 +14,10 @@ const credits = [
     "p5.js",
     "",
     "",
+    "FONT", 
+    "M Plus 1p",
+    "",
+    "",
     "SPECIAL THANKS", 
     "OverlordMimi",
     "conflxcted",
@@ -99,20 +103,24 @@ class sceneCredits {
             changeScene("Menu");
         }
 
-        let yOffset = 0;
+        let yOffset = CANVAS_SIZE.y;
+        textAlign(CENTER,BOTTOM); textSize(UI.TEXTSIZE *1.5);
         for (let i = 0; i < credits.length; i++) {
-            if (yOffset + creditsScroll < CANVAS_SIZE.y/4) {
+            yOffset += UI.TEXTSIZE * 2;
+            if (yOffset + creditsScroll < 3 * CANVAS_SIZE.y/7) {
                 continue;
-            } else if (yOffset + creditsScroll > CANVAS_SIZE.y)  {
+            } else if (yOffset + creditsScroll < CANVAS_SIZE.y * 1.25)  {
                 fill(UI.VDARK_COLOR); text(
                     credits[i],
-                    CANVAS_SIZE.x/16,
+                    5 * CANVAS_SIZE.x/16,
                     yOffset + creditsScroll,
                 );
-                yOffset += UI.TEXTSIZE * 2;
             }
 
         }
+        textAlign(LEFT,BOTTOM);textSize(UI.TEXTSIZE);
+
+        creditsScroll = (creditsScroll - CANVAS_SIZE.y/1000) % (UI.TEXTSIZE * credits.length + 1.6* CANVAS_SIZE.y);
         
         return;
     } 

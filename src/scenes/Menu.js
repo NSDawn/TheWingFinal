@@ -88,7 +88,7 @@ class sceneMenu {
 
         // delete later!!
         fill(UI.VDARK_COLOR); textSize(UI.TEXTSIZE); text(
-            "vsn 1.0.0: here you go queen u can type '$' to skip",
+            "vsn 1.0.1: roll credits!",
             0,
             UI.TEXTSIZE * 1.5,
         );
