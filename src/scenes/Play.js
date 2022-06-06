@@ -1,5 +1,5 @@
 // VAR DECLARATION
-let selectedUser = ""; selectedUser = "kc";
+let selectedUser = ""; selectedUser = "";
 
 let availableUsers = []; 
 
@@ -20,12 +20,13 @@ class scenePlay {
         return;
     }
     sceneInit() { // runs once when this scene is switched to  
+        console.log(currentLine);
         
         //runSlice("d1_kcC", "kc");
-        runSlice("d1_fjA", "fj");
+        //runSlice("d1_fjA", "fj");
         //runSlice("d1_tpE3", "tp");
         
-        
+        save["flag"]["gameStart"] = true;
         selectedUser = availableUsers[0];
         return;
     }
@@ -267,14 +268,27 @@ class scenePlay {
                 break;
             }
         }
+
         // mascot
-        image(
-            IMG["mascot.png"],
-            CANVAS_SIZE.x / 64,
-            CANVAS_SIZE.x / 64,
-            3 * CANVAS_SIZE.x / 32,
-            3 * CANVAS_SIZE.x / 32,
-        );
+        if (true) {
+            let isMouseOn = mousePos.isWithin(new v2(CANVAS_SIZE.x / 64, CANVAS_SIZE.x / 64), new v2(CANVAS_SIZE.x / 64 + 3 * CANVAS_SIZE.x / 32, CANVAS_SIZE.x / 64 + 3 * CANVAS_SIZE.x / 32));
+            let hoverBuff = isMouseOn? CANVAS_SIZE.x / 128 : 0;
+
+            // check if mouse is clicking on this particuar user
+            if (mouseJustClicked && isMouseOn) {
+                changeScene("Menu");
+            }
+
+            
+            image(
+                IMG["mascot.png"],
+                CANVAS_SIZE.x / 64 - hoverBuff/2,
+                CANVAS_SIZE.x / 64 - hoverBuff/2,
+                3 * CANVAS_SIZE.x / 32+ hoverBuff,
+                3 * CANVAS_SIZE.x / 32+ hoverBuff,
+            );
+        }
+        
 
 
         // RUNNING THE GAME
@@ -301,7 +315,7 @@ class scenePlay {
                         save["flag"][currentLine[selectedUser][3]] = 1;
                     }
                     // take the currently typed line and throw it into the savedata
-                    currentSlice[selectedUser][currentLineNum[selectedUser]][2] = Date.now();
+                    //currentSlice[selectedUser][currentLineNum[selectedUser]][2] = Date.now();
                     currentSlice[selectedUser][currentLineNum[selectedUser]][1] += currentChoice[selectedUser];
                     save.msg[selectedUser].push(currentSlice[selectedUser][currentLineNum[selectedUser]]);
                     // move to the next line
@@ -403,7 +417,7 @@ class scenePlay {
 
                     userSent = availableUsers[i];
                     // take the line just sent and throw it into the savedata
-                    currentSlice[userSent][currentLineNum[userSent]][2] = Date.now();
+                    //currentSlice[userSent][currentLineNum[userSent]][2] = Date.now();
                     save.msg[userSent].push(currentSlice[userSent][currentLineNum[userSent]]);
                     // move to the next line
                     currentLineNum[userSent]++;
@@ -473,7 +487,19 @@ function runSlice(in_str, in_user) {
     if (!(availableUsers.includes(in_user))) {
         addUser(in_user);
     }
-    currentSlice[in_user] = S[in_str];
+    currentSlice[in_user] = [];// =  S[in_str];
+
+    for (let i = 0; i < S[in_str].length; i++) {
+        let line = [];
+        for (let j = 0; j < S[in_str][i].length; j++) {
+            line.push(S[in_str][i][j]);
+        }
+        currentSlice[in_user].push(line);
+    }
+
+
+
+
     currentLineNum[in_user] = 0; 
     currentLine[in_user] = currentSlice[in_user][currentLineNum[in_user]];
     currentLineTyped[in_user] = "";

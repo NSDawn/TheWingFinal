@@ -1,7 +1,7 @@
 // VAR DECLARATION
 let wing_x = 0; let wing_y = 0; let wing_z = 0;
 let button_state = true;
-let buttonPlay; let buttonCredits;
+let buttonPlay; let buttonCredits; let buttonNewGame;
 let wingbgTick = 0; let heartbgTickX = 0; let heartbgTickY = 0; 
 
 // SCENE (sceneMenu)
@@ -18,7 +18,9 @@ class sceneMenu {
         IMG["menuwingsbg.png"].resize(CANVAS_SIZE.x * 1.5, 0);
         IMG["menuheartsbg.png"].resize(CANVAS_SIZE.x * 1.5, 0);
 
-        buttonPlay = new Button(new v2(4*CANVAS_SIZE.x/6, 9*CANVAS_SIZE.y/12), "PLAY >>");
+        let play_label = save["flag"]["gameStart"]? "CONTINUE >>" : "PLAY >>";
+        buttonPlay = new Button(new v2(4*CANVAS_SIZE.x/6, 9*CANVAS_SIZE.y/12), play_label);
+        buttonNewGame = new Button(new v2(4*CANVAS_SIZE.x/6, CANVAS_SIZE.y/12), "NEW GAME >>");
         buttonCredits = new Button(new v2(4*CANVAS_SIZE.x/6, 7*CANVAS_SIZE.y/12), "CREDITS >>");
         return;
     }
@@ -77,13 +79,21 @@ class sceneMenu {
             0,
             CANVAS_SIZE.y/16,
         );
-        buttonPlay.draw(); buttonCredits.draw();     
+        buttonPlay.draw(); buttonCredits.draw();  
+        if (save["flag"]["gameStart"]) {
+            buttonNewGame.draw();  
+        }   
         
         if (buttonPlay.isClicked()) {
             changeScene("Play");
         }
         if (buttonCredits.isClicked()) {
             changeScene("Credits");
+        }
+        if (buttonNewGame.isClicked()) {
+            restartGame();
+            startGame();
+            changeScene("Play");
         }
 
         // delete later!!

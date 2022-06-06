@@ -28,6 +28,7 @@ let SFX; let MUSIC;
 function setup() {
     // setup runs once for the entire program
     createCanvas(CANVAS_SIZE.x, CANVAS_SIZE.y); // defined in style.js
+    startGame();
 }
 
 function preload() {
@@ -130,4 +131,8 @@ function mouseClicked() {
 // function that parses time to the format we wanna print. i'm passing unix epoch time through it btw
 function translateTime(in_int) {
     return ("utc+" + String(in_int));
+}
+
+function startGame() {
+    runSlice("d1_fjA", "fj");
 }

@@ -344,7 +344,7 @@ let S = {
         ["*t", "is this...what 'normal' people are like...?", 100],
         ["*p", "im down", 0],
         ["tp", "Meet you there... Sunday at 3?", 300],
-        ["*p", "wouldn't miss it :)", 0, "tpA"]
+        ["*p", "wouldn't miss it :)", 0, "tpA"],
         ["*w", "", 0],
     ],
     "d1_tpE3" : [
