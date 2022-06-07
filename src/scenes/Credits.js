@@ -34,19 +34,19 @@ class sceneCredits {
         return;
     }
     sceneInit() { // runs once when this scene is switched to
-        
+        creditsScroll = 0;
         
         return;
     }
     sceneDraw() { // runs once per ∆t
-        
+
         IMG["credits.png"].resize(CANVAS_SIZE.x/2, 0);
         IMG["button0.png"].resize(CANVAS_SIZE.x/4, 0);
         IMG["button1.png"].resize(CANVAS_SIZE.x/4, 0);
         IMG["menuwingsbg.png"].resize(CANVAS_SIZE.x * 1.5, 0);
         IMG["menuheartsbg.png"].resize(CANVAS_SIZE.x * 1.5, 0);
 
-        creditsScroll = 0;
+        
         buttonBack = new Button(new v2(4*CANVAS_SIZE.x/6, 9*CANVAS_SIZE.y/12), "<< BACK");
 
         //music
