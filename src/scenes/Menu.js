@@ -11,7 +11,10 @@ class sceneMenu {
         return;
     }
     sceneInit() { // runs once when this scene is switched to
-        
+        return;
+    }
+    sceneDraw() { // runs once per ∆t
+
         IMG["title.png"].resize(7*CANVAS_SIZE.x/12, 0);
         IMG["button0.png"].resize(CANVAS_SIZE.x/4, 0);
         IMG["button1.png"].resize(CANVAS_SIZE.x/4, 0);
@@ -22,10 +25,7 @@ class sceneMenu {
         buttonPlay = new Button(new v2(4*CANVAS_SIZE.x/6, 9*CANVAS_SIZE.y/12), play_label);
         buttonNewGame = new Button(new v2(4*CANVAS_SIZE.x/6, CANVAS_SIZE.y/12), "NEW GAME >>");
         buttonCredits = new Button(new v2(4*CANVAS_SIZE.x/6, 7*CANVAS_SIZE.y/12), "CREDITS >>");
-        return;
-    }
-    sceneDraw() { // runs once per ∆t
-
+        
         //music
         MUSIC["Day"].pause();
         MUSIC["MainMenu"].play();
@@ -97,11 +97,13 @@ class sceneMenu {
         }
 
         // delete later!!
+        /*
         fill(UI.VDARK_COLOR); textSize(UI.TEXTSIZE); text(
             "vsn 1.0.3: aaAAAAAaAAAAAAaa",
             0,
             UI.TEXTSIZE * 1.5,
         );
+        */
         
         return;
     } 

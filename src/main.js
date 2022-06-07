@@ -28,6 +28,7 @@ let SFX; let MUSIC;
 function setup() {
     // setup runs once for the entire program
     createCanvas(CANVAS_SIZE.x, CANVAS_SIZE.y); // defined in style.js
+    resizeScreen();
     startGame();
 }
 
@@ -75,6 +76,7 @@ function draw() {
     mouseJustClicked = false;
 
 
+    
 }
 
 function changeScene(sceneKey) {
@@ -126,6 +128,8 @@ function mouseWheel(event) {
 let mouseJustClicked = false;
 function mouseClicked() {
     mouseJustClicked = true;
+    resizeScreen();
+    
 }
 
 // function that parses time to the format we wanna print. i'm passing unix epoch time through it btw
@@ -134,5 +138,17 @@ function translateTime(in_int) {
 }
 
 function startGame() {
-    runSlice("d1_mB", "m");
+    runSlice("d1_kcA", "kc");
+}
+
+function resizeScreen() {
+    // resize screen?
+    if (windowWidth * 4 <= windowHeight * 6) {
+        CANVAS_SIZE = new v2(windowWidth, windowWidth * (4/6));
+    } else {
+        CANVAS_SIZE = new v2(windowHeight*(6/4), windowHeight);
+    }
+    UI.BUFF = CANVAS_SIZE.x/60;
+    UI.TEXTSIZE = CANVAS_SIZE.x/45;
+    resizeCanvas(CANVAS_SIZE.x, CANVAS_SIZE.y);
 }

@@ -35,6 +35,11 @@ class sceneCredits {
     }
     sceneInit() { // runs once when this scene is switched to
         
+        
+        return;
+    }
+    sceneDraw() { // runs once per ∆t
+        
         IMG["credits.png"].resize(CANVAS_SIZE.x/2, 0);
         IMG["button0.png"].resize(CANVAS_SIZE.x/4, 0);
         IMG["button1.png"].resize(CANVAS_SIZE.x/4, 0);
@@ -43,9 +48,6 @@ class sceneCredits {
 
         creditsScroll = 0;
         buttonBack = new Button(new v2(4*CANVAS_SIZE.x/6, 9*CANVAS_SIZE.y/12), "<< BACK");
-        return;
-    }
-    sceneDraw() { // runs once per ∆t
 
         //music
         MUSIC["Day"].pause();

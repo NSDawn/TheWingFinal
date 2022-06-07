@@ -1,4 +1,4 @@
-const CANVAS_SIZE = new v2(600, 400);
+let CANVAS_SIZE = new v2(600, 400);
 
 const UI = {
 
